@@ -1,0 +1,49 @@
+:root{
+    font-family: 'Arial', 'sans-serif'
+}
+.filter_container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+.filter_container .dash-dropdown{
+    flex-grow: 1;
+}
+.DateInput_input{
+    font-size: 16px;
+    height: 36px;
+}
+.seperator,hr{
+    opacity: 0.3;
+    margin-top: 26px;
+}
+.overview_container{
+    display: grid;
+    /* minmax */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(2,230px);
+    gap: 10px;
+    /* grid-template-columns:  */
+}
+.overview_card{
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+.overview_card:not(.mini_card){
+    grid-row: span 2;
+}
+.mini_card{
+    grid-row: span 1;
+}
+.main-svg{
+    background-color: transparent;
+}
+.big-text{
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+}
+.time-overview{
+    grid-area: 2/1;
+}
