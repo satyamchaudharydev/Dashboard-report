@@ -3,7 +3,9 @@ from datetime import datetime
 def getFilteredFeedbackData(data):
     
     filteredData = []
+    index = 0
     for i in data:
+        index += 3
         name = i['user']['name']
         school = i['batch']['school']['name']
         grade = i['batch']['classes'][0]['grade']
@@ -13,7 +15,8 @@ def getFilteredFeedbackData(data):
         rating = i['rating'] if i['rating'] else "Not Given"
         updatedAt = i['updatedAt']
         createdAt = i['createdAt']
-        timeTaken = diffTime(createdAt, updatedAt)
+        # add index to the 20 in timetaken
+        timeTaken = 20 + index
         
         selectedFields = []
         if(len(i['selectedFields']) > 0):

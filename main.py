@@ -198,8 +198,7 @@ app.layout = html.Div([
 )
 def set_teacher_options(selected_school,selected_course,slct_teachers,slct_grades,start_date,end_date):
     filtered_school_id = [i['id'] for i in schoolData if i['name'] == selected_school][0]
-    res = fetchData(fetchFeedback_query(filtered_school_id), {'schoolId': filtered_school_id })
-    print(res)
+
     teacher_options = fetchData(fetchTeachers_query(filtered_school_id))
     classesList = []
     class_options = []
@@ -246,6 +245,8 @@ def set_teacher_options(selected_school,selected_course,slct_teachers,slct_grade
 
 
     averageTimeTaken = sum(time_takens)/len(time_takens) if len(time_takens) else 0
+    
+    averageTimeTaken = str(averageTimeTaken) + '(s)'
     filtered_feedbacksData = pd.DataFrame(getFilteredFeedbackData(filtered_feedbacksData))
     if(len(filtered_feedbacksData)): 
         output_table = html.Div(id='output_table', children=[
